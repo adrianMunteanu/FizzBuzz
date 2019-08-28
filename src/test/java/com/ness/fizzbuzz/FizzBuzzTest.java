@@ -9,9 +9,10 @@ import static org.junit.Assert.assertEquals;
 public class FizzBuzzTest {
 
   private FizzBuzz fizzBuzz = new FizzBuzz();
-  private static final String FIZZ = "Fizz";
-  private static final String BUZZ = "Buzz";
-  private static final String FIZZ_BUZZ = "FizzBuzz";
+  private static final String FIZZ = "fizz";
+  private static final String BUZZ = "buzz";
+  private static final String FIZZ_BUZZ = "fizzbuzz";
+  private static final String ALFRESCO = "alfresco";
 
   @Test
   public void translateWithNonMultipleNumbersShouldReturnThoseNumbers() {
@@ -20,8 +21,15 @@ public class FizzBuzzTest {
   }
 
   @Test
+  public void translateWithContainingThreeShouldReturnAlfresco() {
+    assertEquals(ALFRESCO, fizzBuzz.translate(3));
+    assertEquals(ALFRESCO, fizzBuzz.translate(13));
+    assertEquals(ALFRESCO, fizzBuzz.translate(30));
+  }
+
+  @Test
   public void translateWithMultipleOfThreeShouldReturnFizz() {
-    assertEquals(FIZZ, fizzBuzz.translate(3));
+    assertEquals(ALFRESCO, fizzBuzz.translate(3));
     assertEquals(FIZZ, fizzBuzz.translate(6));
     assertEquals(FIZZ, fizzBuzz.translate(9));
   }
@@ -36,19 +44,18 @@ public class FizzBuzzTest {
   @Test
   public void translateWithMultipleOfFifteenShouldReturnBuzz() {
     assertEquals(FIZZ_BUZZ, fizzBuzz.translate(15));
-    assertEquals(FIZZ_BUZZ, fizzBuzz.translate(30));
+    assertEquals(ALFRESCO, fizzBuzz.translate(30));
     assertEquals(FIZZ_BUZZ, fizzBuzz.translate(45));
   }
 
   @Test
   public void produceSequenceWithRangeShouldProduceString() {
-    String oneToFive = "1 2 Fizz 4 Buzz";
-    String oneToTen = "1 2 Fizz 4 Buzz Fizz 7 8 Fizz Buzz";
-    String oneToTwenty = "1 2 Fizz 4 Buzz Fizz 7 8 Fizz Buzz 11 Fizz 13 14 FizzBuzz 16 17 Fizz 19 Buzz";
+    String oneToFive = "1 2 alfresco 4 buzz";
+    String oneToTen = "1 2 alfresco 4 buzz fizz 7 8 fizz buzz";
+    String oneToTwenty = "1 2 alfresco 4 buzz fizz 7 8 fizz buzz 11 fizz alfresco 14 fizzbuzz 16 17 fizz 19 buzz";
 
     assertEquals(oneToFive, fizzBuzz.produceSequence(1, 5));
     assertEquals(oneToTen, fizzBuzz.produceSequence(1, 10));
     assertEquals(oneToTwenty, fizzBuzz.produceSequence(1, 20));
-
   }
 }
