@@ -1,14 +1,14 @@
-package com.ness.fizzbuzz;
+package com.ness.fizzbuzz.unit;
 
-import com.ness.FizzBuzz;
-import org.junit.Before;
+import com.ness.model.FizzBuzzResponse;
+import com.ness.service.FizzBuzzSerivce;
 import org.junit.Test;
 
 import static org.junit.Assert.assertEquals;
 
-public class FizzBuzzTest {
+public class FizzBuzzSerivceTest {
 
-  private FizzBuzz fizzBuzz = new FizzBuzz();
+  private FizzBuzzSerivce fizzBuzz = new FizzBuzzSerivce();
   private static final String FIZZ = "fizz";
   private static final String BUZZ = "buzz";
   private static final String FIZZ_BUZZ = "fizzbuzz";
@@ -50,10 +50,17 @@ public class FizzBuzzTest {
 
   @Test
   public void produceSequenceWithRangeShouldProduceString() {
-    String oneToFive = "1 2 alfresco 4 buzz" + System.lineSeparator() + "alfresco:1 integer:3 fizz:0 fizzbuzz:0 buzz:1";
-    String oneToTen = "1 2 alfresco 4 buzz fizz 7 8 fizz buzz" + System.lineSeparator() + "alfresco:1 integer:5 fizz:2 fizzbuzz:0 buzz:2";
-    String oneToTwenty = "1 2 alfresco 4 buzz fizz 7 8 fizz buzz 11 fizz alfresco 14 fizzbuzz 16 17 fizz 19 buzz"
-      + System.lineSeparator() + "alfresco:2 integer:10 fizz:4 fizzbuzz:1 buzz:3";
+    FizzBuzzResponse oneToFive = new FizzBuzzResponse();
+    oneToFive.setSequence("1 2 alfresco 4 buzz");
+    oneToFive.setReport("alfresco:1 integer:3 fizz:0 fizzbuzz:0 buzz:1");
+
+    FizzBuzzResponse oneToTen = new FizzBuzzResponse();
+    oneToTen.setSequence("1 2 alfresco 4 buzz fizz 7 8 fizz buzz");
+    oneToTen.setReport("alfresco:1 integer:5 fizz:2 fizzbuzz:0 buzz:2");
+
+    FizzBuzzResponse oneToTwenty = new FizzBuzzResponse();
+    oneToTwenty.setSequence("1 2 alfresco 4 buzz fizz 7 8 fizz buzz 11 fizz alfresco 14 fizzbuzz 16 17 fizz 19 buzz");
+    oneToTwenty.setReport("alfresco:2 integer:10 fizz:4 fizzbuzz:1 buzz:3");
 
     assertEquals(oneToFive, fizzBuzz.produceSequence(1, 5));
     assertEquals(oneToTen, fizzBuzz.produceSequence(1, 10));

@@ -1,4 +1,4 @@
-package com.ness;
+package com.ness.util;
 
 import java.util.List;
 import java.util.Map;
@@ -12,9 +12,7 @@ public class StringUtils {
       .collect(Collectors.joining(" "));
   }
 
-  public static String formatFizzBuzzRestult(List<String> fizzBuzzSequence, String monitoringResult) {
-    return String.join(" ", fizzBuzzSequence)
-      + System.lineSeparator()
-      + monitoringResult;
+  public static String formatList(List<String> fizzBuzzSequence) {
+    return String.join(" ", fizzBuzzSequence);
   }
 }
