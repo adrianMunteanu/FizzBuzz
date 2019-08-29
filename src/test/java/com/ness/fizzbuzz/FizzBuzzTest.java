@@ -50,9 +50,10 @@ public class FizzBuzzTest {
 
   @Test
   public void produceSequenceWithRangeShouldProduceString() {
-    String oneToFive = "1 2 alfresco 4 buzz";
-    String oneToTen = "1 2 alfresco 4 buzz fizz 7 8 fizz buzz";
-    String oneToTwenty = "1 2 alfresco 4 buzz fizz 7 8 fizz buzz 11 fizz alfresco 14 fizzbuzz 16 17 fizz 19 buzz";
+    String oneToFive = "1 2 alfresco 4 buzz" + System.lineSeparator() + "alfresco:1 integer:3 fizz:0 fizzbuzz:0 buzz:1";
+    String oneToTen = "1 2 alfresco 4 buzz fizz 7 8 fizz buzz" + System.lineSeparator() + "alfresco:1 integer:5 fizz:2 fizzbuzz:0 buzz:2";
+    String oneToTwenty = "1 2 alfresco 4 buzz fizz 7 8 fizz buzz 11 fizz alfresco 14 fizzbuzz 16 17 fizz 19 buzz"
+      + System.lineSeparator() + "alfresco:2 integer:10 fizz:4 fizzbuzz:1 buzz:3";
 
     assertEquals(oneToFive, fizzBuzz.produceSequence(1, 5));
     assertEquals(oneToTen, fizzBuzz.produceSequence(1, 10));
