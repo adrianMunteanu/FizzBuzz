@@ -27,6 +27,10 @@ public class FizzBuzz {
   }
 
   public String produceSequence(int start, int end) {
+    if (start >= end) {
+      return "Invalid Range";
+    }
+
     List<String> fizzBuzzSequence = new ArrayList<>();
     Map<String, Integer> monitoringMap = initializeMap();
 
