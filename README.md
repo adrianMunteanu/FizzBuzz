@@ -1,4 +1,4 @@
-## Alfresco FizzBuzz - Step 3-5
+## Alfresco FizzBuzz - Steps 4-5 - Spring Boot implentation
 
 Short program that from a given range it returns all the numbers from the Fizz buzz game as such:
 * 1: the number itself
@@ -16,3 +16,33 @@ Short program that from a given range it returns all the numbers from the Fizz b
 * docker build -t alfresco-spring-boot-docker
 * docker run -p 8080:8080 alfresco-spring-boot-docker
 
+### Endpoits
+
+```
+/fizzbuzz GET
+```
+* Query Params: start: Integer, end: Integer
+
+### Examples
+* /fizzbuzz?start=1&end=10
+```
+[  
+ {
+  sequence: "1 2 alfresco 4 buzz fizz 7 8 fizz buzz",
+  report: "alfresco:1 integer:5 fizz:2 fizzbuzz:0 buzz:2"
+ }
+]
+```
+
+* /fizzbuzz?start=10&end=1
+```
+[  
+ {
+  message: "Start index must be higher than end index"
+ }
+]
+```
+
+### Authors
+
+* **Munteanu Adrian** 
