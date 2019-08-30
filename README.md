@@ -1,4 +1,4 @@
-## Alfresco FizzBuzz - Steps 4-5 - Spring Boot implentation
+## Alfresco FizzBuzz - Steps 4-5 - Spring Boot implementation
 
 Short program that from a given range it returns all the numbers from the Fizz buzz game as such:
 * 1: the number itself
