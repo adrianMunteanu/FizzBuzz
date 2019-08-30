@@ -17,6 +17,10 @@ public class FizzBuzz {
   }
 
   public String produceSequence(int start, int end) {
+    if (start >= end) {
+      return "Invalid Range";
+    }
+
     List<String> sequence = new ArrayList<>();
     IntStream.rangeClosed(start, end)
       .mapToObj(this::translate)
