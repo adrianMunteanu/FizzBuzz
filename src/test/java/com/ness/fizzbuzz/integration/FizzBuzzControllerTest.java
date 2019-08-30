@@ -12,6 +12,7 @@ import org.springframework.test.web.servlet.MockMvc;
 import static org.hamcrest.Matchers.is;
 import static org.springframework.test.web.servlet.request.MockMvcRequestBuilders.get;
 import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.*;
+import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.jsonPath;
 
 @RunWith(SpringRunner.class)
 @SpringBootTest
@@ -31,8 +32,9 @@ public class FizzBuzzControllerTest {
   }
 
   @Test
-  public void getFizzBuzzSequenceWithIncorrectParametersShouldReturnOk() throws Exception {
-    mockMvc.perform(get("/fizzbuzz?start=A&end=Z"))
-      .andExpect(status().isBadRequest());
+  public void getFizzBuzzSequenceWithIncorrectParametersShouldReturnBadRequest() throws Exception {
+    mockMvc.perform(get("/fizzbuzz?start=10&end=1"))
+      .andExpect(status().isBadRequest())
+      .andExpect(jsonPath("$.message", is("Start index must be higher than end index")));
   }
 }

@@ -1,5 +1,6 @@
 package com.ness.service;
 
+import com.ness.exception.IncorrectRangeException;
 import com.ness.model.FizzBuzzResponse;
 import com.ness.util.StringUtils;
 import org.springframework.stereotype.Service;
@@ -29,6 +30,10 @@ public class FizzBuzzSerivce {
   }
 
   public FizzBuzzResponse produceSequence(int start, int end) {
+    if (start >= end) {
+      throw new IncorrectRangeException("Start index must be higher than end index");
+    }
+
     List<String> fizzBuzzSequence = new ArrayList<>();
     Map<String, Integer> monitoringMap = initializeMap();
 

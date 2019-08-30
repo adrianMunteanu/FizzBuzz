@@ -5,7 +5,7 @@ import java.util.Map;
 import java.util.stream.Collectors;
 
 public class StringUtils {
-  public static String formatMap(Map<String, Integer> map) {
+  public static <T>String formatMap(Map<String, T> map) {
     return map.entrySet()
       .stream()
       .map(entry -> entry.getKey() + ":" + entry.getValue())
